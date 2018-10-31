@@ -3,7 +3,7 @@ pipeline {
          stages {
                  stage('One') {
                  steps {
-                     echo 'Hi, this is Jay testing pipeline using Jenkinsfile on branch master and branch1'
+                     echo 'Hi, this is Jay testing pipeline using Jenkinsfile on branch2'
                  }
                  }
                  stage('Two') {
@@ -14,7 +14,7 @@ pipeline {
                  stage('Three') {
                  when {
                        not {
-                            branch "branch1" && "master"
+                            branch "branch2"
                        }
                  }
                  steps {
@@ -25,15 +25,21 @@ pipeline {
                  parallel { 
                             stage('Unit Test') {
                            steps {
-                                echo "Running the unit test on master and branch1..."
+                                echo "Running the unit test on branch2..."
                            }
                            }
                             stage('Integration test') {
                               agent { label 'testslave' }
                               steps {
-                                echo "Running the integration test on master and branch1..."
+                                echo "Running the integration test on branch2..."
                               }
                            }
+                          stage('Unit tests') {
+                              agent { label 'testslave1' }
+                                   steps {
+                                   echo "Running the unit tests on testslave1"
+                                   }
+                                   }
                            }
                            }
               }
