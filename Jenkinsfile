@@ -29,7 +29,7 @@ pipeline {
                            }
                            }
                             stage('Integration test') {
-                              agent { label 'testslave' }
+                              agent { label 'testslave2' }
                               steps {
                                 echo "Running the integration test on master and branch1..."
                               }
