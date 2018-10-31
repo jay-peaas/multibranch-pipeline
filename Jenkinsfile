@@ -40,6 +40,12 @@ pipeline {
                                    echo "Running the unit tests on testslave1"
                                    }
                                    }
+                          stage('Functional Testing') {
+                                   agent{ label 'testslave2'}
+                                   steps{ 
+                                   echo "Running the functional test on testslave2"
+                                   }
+                          }
                            }
                            }
               }
