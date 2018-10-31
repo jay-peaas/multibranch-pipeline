@@ -43,7 +43,7 @@ pipeline {
                           stage('Functional Testing') {
                                    agent{ label 'testslave2'}
                                    steps{ 
-                                   echo "Running the functional test on testslave2"
+                                   echo "Running the functional test on testslave2 node"
                                    }
                           }
                            }
