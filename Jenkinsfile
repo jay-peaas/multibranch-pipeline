@@ -1,17 +1,17 @@
 pipeline {
          agent any
          stages {
-                 stage('One') {
+                 stage('first') {
                  steps {
                      echo 'Hi, this is Jay testing pipeline using Jenkinsfile on branch2'
                  }
                  }
-                 stage('Two') {
+                 stage('Second') {
                  steps {
                     input('Do you want to proceed?')
                  }
                  }
-                 stage('Three') {
+                 stage('Third') {
                  when {
                        not {
                             branch "branch2"
@@ -21,7 +21,7 @@ pipeline {
                        echo "Hello"
                  }
                  }
-                 stage('Four') {
+                 stage('Fourth') {
                  parallel { 
                             stage('Tests') {
                            steps {
